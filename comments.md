@@ -3,6 +3,12 @@
 Purposue of this app is to allow access to modules of SAM project/robot and display some selected data. Idea is to have it done as web app.
 
 
+### To run application locally:
+- go to folder `sam-01-django` where is located file `manage.py`
+- run venv by typing in terminal `source venv/bin/activate`
+- type in terminal `python3 manage.py runserver`
+
+
 # Version
 
 Name | Version
