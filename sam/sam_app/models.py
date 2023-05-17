@@ -8,6 +8,9 @@ class Module(models.Model):
 
     def __repr__(self) -> str:
         return f'Module(id={self.id}, name={self.name}, status={self.status})'
+
+    def ___str___(self) -> str:
+        return f'Module(id={self.id}, name={self.name}, status={self.status})'
     
 
 class TestModel(models.Model):
