@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<h4><a class="nav-link" href="{% url 'sam_app:modules' %}">Modules</a></h4>
+
+<form method="post">{% csrf_token %}
+    <div class="form-group">
+        <label for="moduleName">Module name</label>
+        <input type="text" class="form-control" name="moduleName" id="moduleName" placeholder="Enter module name">
+    </div>
+    <button type="submit" class="btn btn-sm btn-primary">Create</button>
+</form>
+
+<hr/>
+{% endblock %}

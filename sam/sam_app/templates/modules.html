@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+<table class="table table-sm w-25">
+    <h4><a class="nav-link" href="{% url 'sam_app:modules' %}">Modules</a></h4>
+    <thead>
+        <th>Module</th>
+        <th>Status</th>
+    </thead>
+    <tbody>
+    <form method="post">{% csrf_token %}
+    {% for module, status in module_status.items %}
+        <tr>
+            <td>{{ module }}</td>
+            <td class="form-group">
+            {% if status %}
+                <button type="submit" class="form-item btn btn-sm btn-success" value="0">ON</button>
+            {% else %}
+                <button type="submit" class="form-item btn btn-sm btn-outline-danger" value="1">OFF</button>
+            {% endif%}
+            </td>
+        </tr>
+    {% endfor %}
+    </form>
+
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+
+<div>
+    <a class="btn btn-sm btn-outline-secondary" href="{% url 'sam_app:module_create' %}">Create new</a>
+</div>
+
+<hr/>
+{% endblock %}

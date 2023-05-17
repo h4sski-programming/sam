@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+
+<table class="table table-sm w-25">
+    <h4><a class="nav-link" href="{% url 'sam_app:modules' %}">Modules</a></h4>
+    <thead>
+        <th>Module</th>
+        <th>Status</th>
+    </thead>
+    <tbody>
+    {% for module, status in module_status.items %}
+        <tr>
+            <td>{{ module }}</td>
+            {% if status %}
+                <td><a class="btn btn-sm btn-success">ON</a></td>
+            {% else %}
+                <td><a class="btn btn-sm btn-outline-danger">OFF</a></td>
+            {% endif%}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
