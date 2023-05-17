@@ -3,6 +3,14 @@
 Purposue of this app is to allow access to modules of SAM project/robot and display some selected data. Idea is to have it done as web app.
 
 
+# Version
+
+Name | Version
+---- | -------
+python | 3.10
+Django | 4.2.1
+
+
 # App layout
 
     sam-01-django/
@@ -30,22 +38,23 @@ Purposue of this app is to allow access to modules of SAM project/robot and disp
 
 # Process of development and istallation envioremnt and packages
 
-1. establish venv
+## 1. establish venv
 
     sudo apt install python3.10-venv
+    
     python3 -m venv venv
 
 To run/open venv type:
 
     source venv/bin/activate
 
-2. Installation of Django
+## 2. Installation of Django
 
     pip install django
 
 In this app it's used Django version 4.2.1
 
-3. Creating django project
+## 3. Creating django project
 
     django-admin startproject sam
 
@@ -55,7 +64,7 @@ To check if it work, go to created folder `sam`, by command `cd sam`. Then run s
 
 Go to http://127.0.0.1:8000/ and check if Django startup page pop up.
 
-4. Start `sam_app`
+## 4. Start `sam_app`
 
 To create app itself inside folder `sam`:
 
