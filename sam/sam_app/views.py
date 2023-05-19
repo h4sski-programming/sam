@@ -7,7 +7,7 @@ from .models import Module
 def index(request):
         
     context = {
-        'module_status': get_modules_all(),
+        'module_status': get_modules_all_dict(),
     }
     return render(request=request, template_name='index.html', context=context)
 
@@ -46,7 +46,7 @@ def modules(request):
             return redirect(reverse('sam_app:index'))
     
     context = {
-        'module_status': get_modules_all(),
+        'module_status': get_modules_all_dict(),
     }
     return render(request=request, template_name='modules.html', context=context)
 
@@ -72,7 +72,7 @@ def module_create(request):
 
 
     context = {
-        'module_status': get_modules_all(),
+        'module_status': get_modules_all_dict(),
     }
     return render(request=request, template_name='module_create.html', context=context)
 
@@ -80,5 +80,5 @@ def module_create(request):
 '''
 Other functions and utilities, non views
 '''
-def get_modules_all():
+def get_modules_all_dict():
     return {module.name: module.status for module in Module.objects.all()}
