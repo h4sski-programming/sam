@@ -81,6 +81,16 @@ class Module(models.Model):
 
 
 ------------------------------
+# Testing
+
+To start tests type:
+
+    python3 ./manage.py test
+
+You must be in folder where `manage.py` file is located.
+
+
+------------------------------
 # Links
 
 ### During develepment below links were used
