@@ -7,7 +7,7 @@ from .models import Module
 def index(request):
         
     context = {
-        'module_status': get_modules_all_dict(),
+        'modules_list': Module.objects.all(),
     }
     return render(request=request, template_name='index.html', context=context)
 
@@ -76,6 +76,23 @@ def module_create(request):
     }
     return render(request=request, template_name='module_create.html', context=context)
 
+
+def change_status(request, module_name):
+    if module_name == 'all_modules_on':
+        all_modules = Module.objects.all()
+        for mod in all_modules:
+            mod.status = True
+            mod.save()
+    elif module_name == 'all_modules_off':
+        all_modules = Module.objects.all()
+        for mod in all_modules:
+            mod.status = False
+            mod.save()
+    else:
+        module = Module.objects.get(name=module_name)
+        module.status = not module.status
+        module.save()
+    return redirect(reverse('sam_app:index'))
 
 '''
 Other functions and utilities, non views

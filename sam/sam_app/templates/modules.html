@@ -12,18 +12,18 @@
     </thead>
     <tbody>
     <form method="post">{% csrf_token %}
-    {% for module, status in module_status.items %}
-        <tr>
-            <td>{{ module }}</td>
-            <td class="form-group">
-            {% if status %}
-                <button type="submit" value="{{ module }}" name="moduleName" class="form-item btn btn-sm btn-success">ON</button>
-            {% else %}
-                <button type="submit" value="{{ module }}" name="moduleName" class="form-item btn btn-sm btn-outline-danger">OFF</button>
-            {% endif%}
-            </td>
-        </tr>
-    {% endfor %}
+        {% for module, status in module_status.items %}
+            <tr>
+                <td>{{ module }}</td>
+                <td class="form-group">
+                {% if status %}
+                    <button type="submit" value="{{ module }}" name="moduleName" class="form-item btn btn-sm btn-success">ON</button>
+                {% else %}
+                    <button type="submit" value="{{ module }}" name="moduleName" class="form-item btn btn-sm btn-outline-danger">OFF</button>
+                {% endif%}
+                </td>
+            </tr>
+        {% endfor %}
         <tr>
             <th>All modules</th>
             <td>
@@ -32,11 +32,6 @@
             </td>
         </tr>
     </form>
-
-    <tr>
-        <td></td>
-        <td></td>
-    </tr>
     </tbody>
 </table>
 

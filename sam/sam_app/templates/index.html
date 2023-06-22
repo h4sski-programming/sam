@@ -4,23 +4,41 @@
 
 {% block content %}
 
+
+
 <table class="table table-sm w-25">
     <h4><a class="nav-link" href="{% url 'sam_app:modules' %}">Modules</a></h4>
     <thead>
+        <th>ID</th>
         <th>Module</th>
         <th>Status</th>
     </thead>
     <tbody>
-    {% for module, status in module_status.items %}
-        <tr>
-            <td>{{ module }}</td>
-            {% if status %}
-                <td><a class="btn-sm btn-success text-white">ON</a></td>
-            {% else %}
-                <td><a class="btn-sm btn-danger text-white">OFF</a></td>
-            {% endif%}
-        </tr>
+    {% for module in modules_list %}
+    <tr>
+        <td>{{ module.id }}</td>
+        <td>{{ module.name }}</td>
+        
+            <td><a href="{% url 'sam_app:change_status' module.name %}" class="col btn btn-sm 
+                {% if module.status %}
+                    btn-success">ON
+                {% else %}
+                    btn-outline-danger">OFF
+                {% endif %}
+            </a></td>
+    </tr>
     {% endfor %}
+    <tr>
+        <th>#</th>
+        <th>All modules</th>
+        <td>
+            <div class="row justify-content-between m-0">
+                <a href="{% url 'sam_app:change_status' 'all_modules_on' %}" class="col btn btn-sm btn-success">ON</a>
+                <div style="width: 0.5em"></div>
+                <a href="{% url 'sam_app:change_status' 'all_modules_off' %}" class="col btn btn-sm btn-outline-danger">OFF</a>
+            </div>
+        </td>
+    </tr>
     </tbody>
 </table>
 
